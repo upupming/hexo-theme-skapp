@@ -1,5 +1,4 @@
 {# math.swig #}
-
 {% if theme.math.enable %}
   {% set is_index_has_math = false %}
 
@@ -34,6 +33,7 @@
                 }
             });
         </script>      
+<<<<<<< HEAD
 
         <script src="{{ theme.math.mathjax.cdn }}"></script>
     
