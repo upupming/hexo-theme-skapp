@@ -3,7 +3,9 @@ window.addEventListener('load', function() {
     (function() {
         var
             // 找到返回顶部组件，打包
-            backTopEle = document.getElementById('back-top');
+            backTopEle = document.getElementById('back-top'),
+            // 定位目录
+            backToc = document.getElementById('back-toc');
 
             // 导航栏
         var navBar = document.getElementById('small-header');
@@ -29,6 +31,7 @@ window.addEventListener('load', function() {
             }
         }
 
+        // 返回顶部的函数
         if (backTopEle) {
 
             document.addEventListener('scroll', toggleBackTop);
@@ -39,7 +42,8 @@ window.addEventListener('load', function() {
 
                 backTopAmt
                     .from({
-                        top: window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop
+                        top: window.pageYOffset || document.body.scrollTop ||
+                        document.documentElement.scrollTop
                     })
                     .to({
                         top: 0
@@ -51,5 +55,10 @@ window.addEventListener('load', function() {
                     .start();
             });
         }
+
+        // 定位到目录
+        backToc.addEventListener('click', function () {
+
+        });
     })();
 });

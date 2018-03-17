@@ -32,9 +32,6 @@
         {#<!--/noindex-->#}
     {#{% endif %}#}
 
-    <div class="post-toc">
-        {{ toc(page.content) }}
-    </div>
 
 
     {# search #}
@@ -44,6 +41,8 @@
             <i class="iconfont icon-search"></i>
         </label>
     </form>
+
+
 
     {# 简介 #}
     {% if get_setting('description') %}
@@ -59,16 +58,24 @@
         {{ list_categories({ order: -1, class: 'block' }) }}
     </div>
 
+
+    <div class="sidebar__block">
+        <h3 class="block__title">{{ __('aside.toc') }}</h3>
+        <div class="post-toc" id="toc">
+            {{ toc(page.content) }}
+        </div>
+    </div>
+
     {# 最新文章 #}
     <div class="sidebar__block">
         <h3 class="block__title">{{ __('aside.latest_post') }}</h3>
         {{ latest_post(4) }}
     </div>
-
     <div class="sidebar__block">
         <h3 class="block__title">{{ __('aside.tag') }}</h3>
         {{ tags({ order: -1 }) }}
     </div>
+
 
     <!-- <div class="sidebar__block">
         <h3 class="block__title">{{ __('aside.friend_links') }}</h3>
