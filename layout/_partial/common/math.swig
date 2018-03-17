@@ -33,7 +33,6 @@
                 }
             });
         </script>      
-<<<<<<< HEAD
 
         <script src="{{ theme.math.mathjax.cdn }}"></script>
     

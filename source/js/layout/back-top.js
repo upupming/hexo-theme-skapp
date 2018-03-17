@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
         function toggleBackTop() {
             var
                 // 取三者中第一个不为0的数
-                scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+                scrollTop = document.documentElement.scrollTop,
                 // 此刻是否隐藏
                 isHidden = backTopEle.classList.contains('js-hidden');
 
@@ -21,7 +21,8 @@ window.addEventListener('load', function() {
                 // 是时候显示"返回顶部”了，同时隐藏导航栏
                 backTopEle.classList.remove('js-hidden');
                 navBar.classList.add('js-hidden');
-            }else if(scrollTop < 350 && !isHidden){
+            }else if(scrollTop < 350-40 && !isHidden){
+                // 40是被隐藏的导航栏的高度
                 // 是时候隐藏"返回顶部”了，同时显示导航栏
                 backTopEle.classList.add('js-hidden');
                 navBar.classList.remove('js-hidden');
