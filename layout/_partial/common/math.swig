@@ -1,4 +1,5 @@
 {# math.swig #}
+
 {% if theme.math.enable %}
   {% set is_index_has_math = false %}
 
@@ -33,6 +34,7 @@
                 }
             });
         </script>      
+
         <script src="{{ theme.math.mathjax.cdn }}"></script>
     
     {% elif theme.math.engine == 'katex' %}

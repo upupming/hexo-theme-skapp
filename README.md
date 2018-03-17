@@ -137,6 +137,7 @@ Default menu items：
 | search | search: /search | search | 
 
 Then, you need create `about`,`search` and `404` page manually:
+
 create the about page:
 ```shell
 hexo new page about
@@ -145,7 +146,7 @@ edit the `index.md` file in the root `source/about` folder:
 
 ``` md
 ---
-title: abbout
+title: about
 date: 2017-07-29 00:50:51
 type: about
 layout: about
@@ -154,7 +155,7 @@ layout: about
 ...(the below content will be redenered in the about page)
 ```
 
-create the search page：
+create the search page:
 ``` shell
 hexo new page search
 ```
@@ -168,8 +169,7 @@ layout: search
 ---
 ```
 
-create the 404 page:
-create the `404.md` file in the source directory and edit this file:
+To create the 404 page, create the `404.md` file in the source directory and edit this file:
 ``` md
 ---
 title: 404 Page Not Found
@@ -281,7 +281,7 @@ build_tools:
     link: https://hexo.io/
 ```
 `name` means the link value, `desc` means the link `title` attribute value.
-Each array in this file represents a list of link(e.g. friend_links). Skapp support multi-column links(you just need to edit your language configuration in the `hexo-theme-skapp/languages`).
+Each array in this file represents a list of link(e.g. `friend_links`). Skapp support multi-column links(you just need to edit your language configuration in the `hexo-theme-skapp/languages`).
 
 #### personalized configuration
 skapp uses `sass` precompiled style and packages all the baisc styles in the `_theme.scss` file under the `hexo-theme-skapp/source/scss` directory:
@@ -323,7 +323,7 @@ $z-index--top: 100                                  !default;
 ```
 
 #### blog basic usage
-To configure basic info  in your markdown blog file：
+To configure basic info in your markdown blog file:
 ```
 title: Hello World 
 cover: http://oxnuwmm3w.bkt.clouddn.com/hello-world.jpeg
@@ -387,6 +387,7 @@ sitemap:
 skapp has integrated [gitalk](https://github.com/gitalk/gitalk).
 If you want to use this comment function, you need to register the Github Application(follow the [gitalk document](https://github.com/gitalk/gitalk#usage)).
 Then to edit the `_config.yml` configuration:
+
 ``` yml
 # Gitalk
 gitTalk:
@@ -408,3 +409,44 @@ Then to edit the `_config.yml` configuration:
 
 disqus_shortname: ***
 ```
+
+#### Math Equations Render Support
+
+skapp uses [hexo-math][math] to render math formulas and it's closes by default. Configure the `_config.yml` under the theme folder to use this feature: 
+
+```yml
+# Math Equations Render Support
+math:
+  enable: true
+
+  # Default(true) will load mathjax/katex script on demand
+  # That is it only render those page who has 'mathjax: true' in Front Matter.
+  # If you set it to false, it will load mathjax/katex srcipt EVERY PAGE.
+  per_page: false
+
+  engine: mathjax
+  #engine: katex
+
+  # hexo-rendering-pandoc (or hexo-renderer-kramed) needed to full MathJax support.
+  mathjax:
+    # Use 2.7.1 as default, jsdelivr as default CDN, works everywhere even in China
+    cdn: //cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    # For newMathJax CDN (cdnjs.cloudflare.com) with fallback to oldMathJax (cdn.mathjax.org).
+    #cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    # For direct link to MathJax.js with CloudFlare CDN (cdnjs.cloudflare.com).
+    #cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML
+    # For automatic detect latest version link to MathJax.js and get from Bootcss.
+    #cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+
+  # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin)
+  # needed to full Katex support.
+  katex:
+    # Use 0.7.1 as default, jsdelivr as default CDN, works everywhere even in China
+    cdn: //cdn.jsdelivr.net/npm/katex@0.7.1/dist/katex.min.css
+    # CDNJS, provided by cloudflare, maybe the best CDN, but not works in China
+    #cdn: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css
+    # Bootcss, works great in China, but not so well in other region
+    #cdn: //cdn.bootcss.com/KaTeX/0.7.1/katex.min.css
+```
+
+[math]: https://github.com/hexojs/hexo-math

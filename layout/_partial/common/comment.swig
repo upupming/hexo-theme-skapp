@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script src="/js/libs/md5.min.js"></script>
-
     <script>
         var tags = [{% for tag in page.tags %}'{{ tag.name }}', {% endfor %}];
 
@@ -13,7 +12,7 @@
             owner: '{{ config.gitTalk.owner }}',
             admin: [{% for item in config.gitTalk.admin %}'{{ item }}', {% endfor %}],
             labels: tags,
-            id: md5(location.href)
+            id: (new Date({{ page.date }})).getTime() > (new Date('2018-02-15')).getTime() ? md5(location.href) : location.href
         });
 
         gitalk.render('comment-container');
