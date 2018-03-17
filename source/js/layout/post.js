@@ -1,12 +1,11 @@
 window.addEventListener('load', function() {
     function addListener(callback) {
-        var 
-            timer = null,
-            requestAnimationFrame = window.requestAnimationFrame 
-                || window.mozRequestAnimationFrame
-                || window.webkitRequestAnimationFrame
-                || window.msRequestAnimationFrame,
-            cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+        var timer = null;
+        var requestAnimationFrame = window.requestAnimationFrame ||
+                                    window.mozRequestAnimationFrame ||
+                                    window.webkitRequestAnimationFrame ||
+                                    window.msRequestAnimationFrame;
+        var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
         function lintener() {
             cancelAnimationFrame(timer);
@@ -25,7 +24,9 @@ window.addEventListener('load', function() {
         var posts = document.querySelectorAll('article.page__mini-article');
         
         posts.forEach(function(post) {
-            if (post.parentElement.parentElement.classList.contains('js-hidden')) return;
+            if (post.parentElement.parentElement.classList.contains('js-hidden')) {
+                return;
+            }
 
             var position = getPosition(post);
 
@@ -36,12 +37,13 @@ window.addEventListener('load', function() {
                 .base('js-ease-out-leave')
                 .transfrom('js-ease-out-enter-active')
                 .end(function() {
-                    var arr = ['js-ease-out-enter', 'js-ease-out-enter-active', 'js-ease-out-leave', 'js-ease-out-leave-active'];
+                    var arr = ['js-ease-out-enter', 'js-ease-out-enter-active',
+                        'js-ease-out-leave', 'js-ease-out-leave-active'];
 
                     arr.forEach(function(item) {
                         post.classList.remove(item);
                     });
-                })
+                });
 
             addListener(function(remove) {
                 var diff = position.y - window.scrollY - document.documentElement.clientHeight;
@@ -53,7 +55,8 @@ window.addEventListener('load', function() {
                 }
             });
         });
-    }
+    };
 
     window._skappPostAnimation();
+
 });

@@ -23,14 +23,20 @@ git clone https://github.com/Mrminfive/hexo-theme-skapp.git
 
 3. To modify the root `_config.yml` and install node dependencies.
 ```shell
-npm install --save hexo-autoprefixer hexo-filter-cleanup hexo-generator-feed hexo-generator-sitemap hexo-renderer-sass hexo-renderer-swig mamboer/lunr.js moment node-sass object-assign
+npm install --save hexo-autoprefixer hexo-filter-cleanup hexo-generator-feed hexo-generator-sitemap hexo-renderer-sass hexo-renderer-swig mamboer/lunr.js moment node-sass object-assign 
 ```
-**note**: If your OS is Windows, you may meet some problems when install the `mamboer/lunr.js`(because of the package`nodejieba`). To fix this problem, you should install `node-gyp`.
+**note**: 
+
+If your OS is Windows, you may meet some problems when install the `mamboer/lunr.js`(because of the package`nodejieba`). To fix this problem, you should install `node-gyp`.
 ```shell
 npm install -g windows-build-tools
 npm install -g node-gyp
 ```
 
+If your OS is ubuntu, you may need to install `libpng-dev`: 
+```shell
+sudo apt install libpng-dev
+```
 Then configure the root `_config.yml` file:
 ```yml
 theme: hexo-theme-skapp

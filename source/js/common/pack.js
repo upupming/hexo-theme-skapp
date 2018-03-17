@@ -11,7 +11,7 @@
     Pack.prototype = {
         _toggleClass: function(className, next) {
             var self = this;
-            classArr = className.split(' ');
+            var classArr = className.split(' ');
 
             classArr.forEach(function(cls) {
                 self.ele.classList.toggle(cls);
@@ -72,6 +72,7 @@
             this.index += this.dir;
         },
 
+        // 添加class
         base: function(className) {
             this.record.push({
                 className: className || 'js-open',
@@ -81,6 +82,7 @@
             return this;
         },
 
+        // 添加transform
         transfrom: function(className) {
             this.record.push({
                 className: className,
@@ -100,7 +102,9 @@
         },
 
         toggle: function() {
-            if (this.status) return;
+            if (this.status) {
+                return;
+            }
 
             if (this.index === 0 || this.index === this.record.length - 1) {
                 this.status = true;
@@ -127,7 +131,7 @@
             this.end = fun;
             return this;
         }
-    }
+    };
 
     win.Pack = Pack;
 })(window);

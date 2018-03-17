@@ -3,7 +3,8 @@ window.addEventListener('load', function() {
         var headerEle = document.getElementById('page-header');
 
         function toggleNavStyle() {
-            var scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+            var scrollTop = window.pageYOffset || document.body.scrollTop ||
+                document.documentElement.scrollTop;
 
             headerEle.classList[ scrollTop > 30 ? 'add' : 'remove' ]('page__header--small');
         }
@@ -12,15 +13,17 @@ window.addEventListener('load', function() {
     })();
     
     (function() {
-        var 
+        var
+            // 打开菜单选项的开关 |||
             btn = document.querySelector('button.page__menu-btn'),
+            // 菜单栏
             menu = document.querySelector('nav.page__nav');
 
         if (btn && menu) {
             var packMenu = new Pack(menu);
 
             packMenu.base('js-open').transfrom('page__nav--open');
-
+            // 按下开关时，开启菜单
             btn.addEventListener('click', function() {
                 packMenu.toggle();
             });
@@ -30,7 +33,9 @@ window.addEventListener('load', function() {
     (function() {
         var header = document.getElementById('page-header');
         
-        if (!header) return;
+        if (!header) {
+            return;
+        }
 
         var
             title = header.querySelector('.info__title'),
@@ -52,7 +57,8 @@ window.addEventListener('load', function() {
             .base('js-ease-out-leave')
             .transfrom('js-ease-out-enter-active')
             .end(function() {
-                var arr = ['js-ease-out-enter', 'js-ease-out-enter-active', 'js-ease-out-leave', 'js-ease-out-leave-active'];
+                var arr = ['js-ease-out-enter',
+                    'js-ease-out-enter-active', 'js-ease-out-leave', 'js-ease-out-leave-active'];
 
                 arr.forEach(function(item) {
                     desc.classList.remove(item);

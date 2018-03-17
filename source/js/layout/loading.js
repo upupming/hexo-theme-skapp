@@ -1,18 +1,18 @@
 // loading
 document.onreadystatechange = function(){
     var page = document.getElementById('page');
-    if (document.readyState == 'interactive') {
+    if (document.readyState === 'interactive') {
         window.setTimeout(function(){
             disableLoad();
-        },4000)
+        },4000);
     }
 
-    if (document.readyState == 'complete') {        
+    if (document.readyState === 'complete') {
         if (page.classList.contains('js-hidden')) {
             disableLoad();
         }
     }
-}
+};
 
 function disableLoad(){
     var

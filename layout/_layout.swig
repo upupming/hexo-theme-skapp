@@ -34,13 +34,13 @@
     </div>
 
     <!-- build:js /js/common.js -->
-        <script type="text/javascript" src="js/common/utils.js"></script>
-        <script type="text/javascript" src="js/common/pack.js"></script>
-        <script type="text/javascript" src="js/common/animation.js"></script>
-        <script type="text/javascript" src="js/layout/loading.js"></script>
-        <script type="text/javascript" src="js/layout/header.js"></script>
-        <script type="text/javascript" src="js/layout/back-top.js"></script>
-        <script type="text/javascript" src="js/layout/post.js"></script>
+    <script  src="/js/common/utils.js"></script>
+    <script  src="/js/common/pack.js"></script>
+    <script  src="/js/common/animation.js"></script>
+    <script  src="/js/layout/loading.js"></script>
+    <script  src="/js/layout/header.js"></script>
+    <script  src="/js/layout/back-top.js"></script>
+    <script  src="/js/layout/post.js"></script>
     <!-- endbuild -->
 
     {% block pagejs %}
@@ -48,5 +48,7 @@
 
     {% block other %}
     {% endblock %}
+
+    {% include './_partial/common/math.swig' %}
 </body>
 </html>

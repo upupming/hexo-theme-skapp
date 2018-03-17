@@ -6,7 +6,8 @@ window.addEventListener('load', function() {
         .base('js-ease-out-leave')
         .transfrom('js-ease-out-enter-active')
         .end(function() {
-            var arr = ['js-ease-out-enter', 'js-ease-out-enter-active', 'js-ease-out-leave', 'js-ease-out-leave-active'];
+            var arr = ['js-ease-out-enter', 'js-ease-out-enter-active',
+                'js-ease-out-leave', 'js-ease-out-leave-active'];
 
             arr.forEach(function(item) {
                 postContent.classList.remove(item);
